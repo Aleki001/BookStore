@@ -56,7 +56,7 @@
       <td th:text="${b.name}"></td>
       <td th:text="${b.author}"></td>
       <td th:text="${b.price}"></td>
-      <td><a style="color: red" th:href="@{deleteMyList/{id}(id=${b.id})"><i class="fa-solid fa-trash"></i></a></td>
+      <td><a class="btn btn-secondary btn-sm" th:href="${'/deleteMyList/' + b.id}">Delete</a></td>
 
     </tr>
     </tbody>

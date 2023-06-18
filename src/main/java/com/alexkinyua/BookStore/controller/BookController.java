@@ -14,11 +14,15 @@ import java.util.List;
 
 @Controller
 public class BookController {
-    @Autowired
+
     private BookService service;
+    private MyBookListService myBookListService;
 
     @Autowired
-    private MyBookListService myBookListService;
+    public BookController(BookService service, MyBookListService myBookListService) {
+        this.service = service;
+        this.myBookListService = myBookListService;
+    }
 
     @GetMapping("/")
     public String home(){
@@ -51,5 +55,18 @@ public class BookController {
         MyBookList mb = new MyBookList(b.getId(), b.getName(), b.getAuthor(), b.getPrice());
         myBookListService.saveMyBook(mb);
         return "redirect:/my_books";
+    }
+
+    @RequestMapping("/editBook/{id}")
+    public String editBook(@PathVariable("id") int id, Model model){
+        Book b = service.getBookById(id);
+        model.addAttribute("book", b);
+        return "bookEdit";
+    }
+
+    @RequestMapping("/deleteBook/{id}")
+    public String deleteBook(@PathVariable("id") int id){
+        service.deleteById(id);
+        return "redirect:/available_books";
     }
 }

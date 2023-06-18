@@ -9,8 +9,13 @@ import java.util.List;
 
 @Service
 public class MyBookListService {
-    @Autowired
     private MyBookRepository myBook;
+
+    @Autowired
+    public MyBookListService(MyBookRepository myBook) {
+        this.myBook = myBook;
+    }
+
     public void saveMyBook(MyBookList book){
         myBook.save(book);
     }

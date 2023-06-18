@@ -9,11 +9,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MyBookListController {
 
-    @Autowired
     private MyBookListService myBookListService;
+    @Autowired
+    public MyBookListController(MyBookListService myBookListService) {
+        this.myBookListService = myBookListService;
+    }
+
     @RequestMapping("/deleteMyList/{id}")
     public String deleteMyList(@PathVariable("id") int id){
         myBookListService.deleteById(id);
-        return "redirect:my_books";
+        return "redirect:/my_books";
     }
 }

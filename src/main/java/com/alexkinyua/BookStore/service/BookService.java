@@ -10,8 +10,12 @@ import java.util.List;
 @Service
 public class BookService {
 
-    @Autowired
     private BookRepository bRepo;
+    @Autowired
+    public BookService(BookRepository bRepo) {
+        this.bRepo = bRepo;
+    }
+
     public void save(Book b){
         bRepo.save(b);
     }
@@ -21,6 +25,10 @@ public class BookService {
     }
 
     public Book getBookById(int id){
-        return bRepo.findById(String.valueOf(id)).get();
+        return bRepo.findById(id).get();
+    }
+
+    public void deleteById(int id){
+        bRepo.deleteById(id);
     }
 }
