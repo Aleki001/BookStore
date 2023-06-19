@@ -10,14 +10,14 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String name;
+    private String title;
     private String author;
-    private String price;
+    private int price;
 
     //constructor
-    public Book(int id, String name, String author, String price) {
+    public Book(int id, String title, String author, int price) {
         this.id = id;
-        this.name = name;
+        this.title = title;
         this.author = author;
         this.price = price;
     }
@@ -34,12 +34,12 @@ public class Book {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getAuthor() {
@@ -50,11 +50,11 @@ public class Book {
         this.author = author;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 }

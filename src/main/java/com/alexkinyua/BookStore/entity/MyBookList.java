@@ -8,10 +8,10 @@ import jakarta.persistence.Table;
 @Table(name="MyBooks")
 public class MyBookList {
 
-    public MyBookList(int id, String name, String author, String price) {
+    public MyBookList(int id, String title, String author, int price) {
         super();
         this.id = id;
-        this.name = name;
+        this.title = title;
         this.author = author;
         this.price = price;
     }
@@ -22,9 +22,9 @@ public class MyBookList {
 
     @Id
     private int id;
-    private String name;
+    private String title;
     private String author;
-    private String price;
+    private int price;
 
 
     public int getId() {
@@ -35,12 +35,12 @@ public class MyBookList {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String title) {
+        this.title = title;
     }
 
     public String getAuthor() {
@@ -51,11 +51,11 @@ public class MyBookList {
         this.author = author;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 }
