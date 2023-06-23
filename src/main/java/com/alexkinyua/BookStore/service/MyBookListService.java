@@ -2,19 +2,17 @@ package com.alexkinyua.BookStore.service;
 
 import com.alexkinyua.BookStore.entity.MyBookList;
 import com.alexkinyua.BookStore.repository.MyBookRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class MyBookListService {
-    private MyBookRepository myBook;
 
-    @Autowired
-    public MyBookListService(MyBookRepository myBook) {
-        this.myBook = myBook;
-    }
+    private final MyBookRepository myBook;
 
     public void saveMyBook(MyBookList book){
         myBook.save(book);

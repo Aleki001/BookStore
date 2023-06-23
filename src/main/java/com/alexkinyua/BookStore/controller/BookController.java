@@ -4,6 +4,7 @@ import com.alexkinyua.BookStore.entity.Book;
 import com.alexkinyua.BookStore.entity.MyBookList;
 import com.alexkinyua.BookStore.service.BookService;
 import com.alexkinyua.BookStore.service.MyBookListService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,16 +14,11 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
+@RequiredArgsConstructor
 public class BookController {
 
-    private BookService service;
-    private MyBookListService myBookListService;
-
-    @Autowired
-    public BookController(BookService service, MyBookListService myBookListService) {
-        this.service = service;
-        this.myBookListService = myBookListService;
-    }
+    private final BookService service;
+    private final MyBookListService myBookListService;
 
     @GetMapping("/")
     public String home(){
